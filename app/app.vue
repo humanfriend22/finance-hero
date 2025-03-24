@@ -908,7 +908,7 @@ const database = useStorage<Database>("database", {
     ],
 });
 
-const genAI = new GoogleGenerativeAI('AIzaSyBTBPtffph-kns7BVVVcrgNTiXrLIGR0YM');
+const genAI = new GoogleGenerativeAI('AIzaSyBaee8rEquz9FThT8H26WaQltJIFofrE7c');
 const model = genAI.getGenerativeModel({
     model: "gemini-1.5-pro",
     systemInstruction: "You are a buisness advisor for this small bakery. Try to keep responses concise like you are chatting with someone. Here is their ledger: " + JSON.stringify(database.value.ledger),
@@ -940,13 +940,6 @@ function addEntryToLedger(description: string, amount: number) {
 };
 
 provide('add-ledger-entry', addEntryToLedger);
-
-
-const colorMode = useColorMode();
-onMounted(() => {
-    colorMode.preference = 'dark';
-    colorMode.value = 'dark';
-});
 
 const items = ref([
     [
@@ -984,7 +977,11 @@ const items = ref([
     ]
 ]);
 
+const colorMode = useColorMode();
+
 onMounted(() => {
+    colorMode.preference = 'dark';
+    colorMode.value = 'dark';
 });
 </script>
 
