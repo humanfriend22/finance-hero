@@ -983,6 +983,10 @@ onMounted(() => {
     colorMode.preference = 'dark';
     colorMode.value = 'dark';
 });
+
+definePageMeta({
+    colorMode: 'dark',
+});
 </script>
 
 <template>
